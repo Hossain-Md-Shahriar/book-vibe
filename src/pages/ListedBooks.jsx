@@ -57,7 +57,9 @@ const ListedBooks = () => {
         </Link>
       </div>
       <div className="relative top-[-1px] w-full border-b border-[#1313134c] -z-10"></div>
+      <div className="mt-8">
       <Outlet />
+      </div>
     </div>
   );
 };

@@ -21,7 +21,7 @@
       "totalPages": 328,
       "rating": 4.8,
       "category": "Science Fiction",
-      "tags": ["Dystopian", "Political", "Social Commentary"],
+      "tags": ["Dystopian", "Political", "Social_Commentary"],
       "publisher": "Secker & Warburg",
       "yearOfPublishing": 1949
     },
@@ -34,7 +34,7 @@
       "totalPages": 336,
       "rating": 4.7,
       "category": "Fiction",
-      "tags": ["Coming-of-age", "Legal Drama", "Southern Gothic"],
+      "tags": ["Coming-of-age", "Legal_Drama", "Southern_Gothic"],
       "publisher": "J. B. Lippincott & Co.",
       "yearOfPublishing": 1960
     },
@@ -47,7 +47,7 @@
       "totalPages": 224,
       "rating": 4.3,
       "category": "Fiction",
-      "tags": ["Coming-of-age", "American Literature", "Cultural Critique"],
+      "tags": ["Coming-of-age", "American_Literature", "Cultural_Critique"],
       "publisher": "Little, Brown and Company",
       "yearOfPublishing": 1951
     },
@@ -60,7 +60,7 @@
       "totalPages": 432,
       "rating": 4.6,
       "category": "Fiction",
-      "tags": ["Romance", "Satire", "Regency Era"],
+      "tags": ["Romance", "Satire", "Regency_Era"],
       "publisher": "T. Egerton, Whitehall",
       "yearOfPublishing": 1813
     },
@@ -73,7 +73,7 @@
       "totalPages": 1178,
       "rating": 4.9,
       "category": "Fantasy",
-      "tags": ["Epic", "High Fantasy", "Adventure"],
+      "tags": ["Epic", "High_Fantasy", "Adventure"],
       "publisher": "Allen & Unwin",
       "yearOfPublishing": 1954
     }

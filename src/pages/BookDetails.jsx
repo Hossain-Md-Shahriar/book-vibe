@@ -25,6 +25,7 @@ const BookDetails = () => {
     } else {
       saved.push(book);
       localStorage.setItem("read", JSON.stringify(saved));
+      alert("saved to read list");
     }
   };
 
@@ -40,6 +41,7 @@ const BookDetails = () => {
     } else {
       savedWish.push(book);
       localStorage.setItem("wishlist", JSON.stringify(savedWish));
+      alert("saved to wishlist");
     }
   };
 
