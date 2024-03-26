@@ -26,23 +26,42 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
+              <NavLink
+                to={"/"}
+                className={({ isActive }) =>
+                  `px-5 py-2 ${
+                    isActive
+                      ? "font-semibold text-[#23BE0A] border border-[#23BE0A] rounded-lg"
+                      : "font-normal text-[#131313cc]"
+                  }`
+                }
+              >
+                Home
+              </NavLink>
+              <NavLink
+                to={"listed-books"}
+                className={({ isActive }) =>
+                  `px-5 py-2 ${
+                    isActive
+                      ? "font-semibold text-[#23BE0A] border border-[#23BE0A] rounded-lg"
+                      : "font-normal text-[#131313cc]"
+                  }`
+                }
+              >
+                Listed Books
+              </NavLink>
+              <NavLink
+                to={"pages-to-read"}
+                className={({ isActive }) =>
+                  `px-5 py-2 ${
+                    isActive
+                      ? "font-semibold text-[#23BE0A] border border-[#23BE0A] rounded-lg"
+                      : "font-normal text-[#131313cc]"
+                  }`
+                }
+              >
+                Pages to Read
+              </NavLink>
             </ul>
           </div>
           <Link to={"/"} className="text-[28px] font-bold">
@@ -89,9 +108,13 @@ const Navbar = () => {
             </NavLink>
           </ul>
         </div>
-        <div className="navbar-end space-x-3">
-          <a className="btn bg-[#23BE0A] hover:bg-[#409832] text-white px-6 text-lg">Sign In</a>
-          <a className="btn bg-[#59C6D2] hover:bg-[#49a9b3] text-white px-6 text-lg">Sign Up</a>
+        <div className="navbar-end flex gap-3 flex-wrap">
+          <a className="btn bg-[#23BE0A] hover:bg-[#409832] text-white px-6 text-lg">
+            Sign In
+          </a>
+          <a className="btn bg-[#59C6D2] hover:bg-[#49a9b3] text-white px-6 text-lg">
+            Sign Up
+          </a>
         </div>
       </div>
     </div>
