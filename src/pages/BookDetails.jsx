@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { json, useLoaderData, useParams } from "react-router-dom";
 
 const BookDetails = () => {
   const books = useLoaderData();
@@ -16,6 +16,33 @@ const BookDetails = () => {
     publisher,
     yearOfPublishing,
   } = book;
+
+  const saveReadData = () => {
+    const saved = JSON.parse(localStorage.getItem("read")) || [];
+    const isExist = saved.find((item) => item.bookId == id);
+    if (isExist) {
+      alert("already in read list");
+    } else {
+      saved.push(book);
+      localStorage.setItem("read", JSON.stringify(saved));
+    }
+  };
+
+  const saveWishlistData = () => {
+    const savedWish = JSON.parse(localStorage.getItem("wishlist")) || [];
+    const savedRead = JSON.parse(localStorage.getItem("read")) || [];
+    const isExistWish = savedWish.find((item) => item.bookId == id);
+    const isExistRead = savedRead.find((item) => item.bookId == id);
+    if (isExistWish) {
+      alert("already in wishlist");
+    } else if (isExistRead) {
+      alert("already in read list");
+    } else {
+      savedWish.push(book);
+      localStorage.setItem("wishlist", JSON.stringify(savedWish));
+    }
+  };
+
   return (
     <div className="flex flex-col lg:flex-row gap-12 mb-40 mx-5">
       <div className="bg-[#1313130c] rounded-2xl p-[74px] flex justify-center items-center">
@@ -49,26 +76,42 @@ const BookDetails = () => {
           </div>
         </div>
         <div className="space-y-3 mb-8">
-            <div className="flex gap-10">
-                <p className="text-[#1313139a] max-w-[150px] flex-grow">Number of Pages:</p>
-                <p className="font-bold">{totalPages}</p>
-            </div>
-            <div className="flex gap-10">
-                <p className="text-[#1313139a] max-w-[150px] flex-grow">Publisher:</p>
-                <p className="font-bold">{publisher}</p>
-            </div>
-            <div className="flex gap-10">
-                <p className="text-[#1313139a] max-w-[150px] flex-grow">Year of Publishing:</p>
-                <p className="font-bold">{yearOfPublishing}</p>
-            </div>
-            <div className="flex gap-10">
-                <p className="text-[#1313139a] max-w-[150px] flex-grow">Rating:</p>
-                <p className="font-bold">{rating}</p>
-            </div>
+          <div className="flex gap-10">
+            <p className="text-[#1313139a] max-w-[150px] flex-grow">
+              Number of Pages:
+            </p>
+            <p className="font-bold">{totalPages}</p>
+          </div>
+          <div className="flex gap-10">
+            <p className="text-[#1313139a] max-w-[150px] flex-grow">
+              Publisher:
+            </p>
+            <p className="font-bold">{publisher}</p>
+          </div>
+          <div className="flex gap-10">
+            <p className="text-[#1313139a] max-w-[150px] flex-grow">
+              Year of Publishing:
+            </p>
+            <p className="font-bold">{yearOfPublishing}</p>
+          </div>
+          <div className="flex gap-10">
+            <p className="text-[#1313139a] max-w-[150px] flex-grow">Rating:</p>
+            <p className="font-bold">{rating}</p>
+          </div>
         </div>
         <div className="space-x-4">
-            <button className="font-work text-lg font-semibold py-[18px] px-7 border border-[#1313134c] rounded-lg">Read</button>
-            <button className="bg-[#50B1C9] text-white font-work text-lg font-semibold py-[18px] px-7 rounded-lg">Wishlist</button>
+          <button
+            onClick={saveReadData}
+            className="font-work text-lg font-semibold py-4 px-7 border border-[#1313134c] rounded-lg hover:bg-[#dfdfdfdf]"
+          >
+            Read
+          </button>
+          <button
+            onClick={saveWishlistData}
+            className="bg-[#50B1C9] text-white font-work text-lg font-semibold py-4 px-7 rounded-lg"
+          >
+            Wishlist
+          </button>
         </div>
       </div>
     </div>

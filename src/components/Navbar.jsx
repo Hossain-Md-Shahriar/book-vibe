@@ -31,8 +31,8 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   `px-5 py-2 ${
                     isActive
-                      ? "font-semibold text-[#23BE0A] border border-[#23BE0A] rounded-lg"
-                      : "font-normal text-[#131313cc]"
+                      ? "font-semibold text-[#23BE0A] border border-[#23BE0A] hover:bg-[#22be0ac4] hover:text-white rounded-lg"
+                      : "font-normal text-[#131313cc] hover:bg-[#e6e6e6] rounded-lg"
                   }`
                 }
               >
@@ -43,8 +43,8 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   `px-5 py-2 ${
                     isActive
-                      ? "font-semibold text-[#23BE0A] border border-[#23BE0A] rounded-lg"
-                      : "font-normal text-[#131313cc]"
+                      ? "font-semibold text-[#23BE0A] border border-[#23BE0A] hover:bg-[#22be0ac4] hover:text-white rounded-lg"
+                      : "font-normal text-[#131313cc] hover:bg-[#e6e6e6] rounded-lg"
                   }`
                 }
               >
@@ -55,8 +55,8 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   `px-5 py-2 ${
                     isActive
-                      ? "font-semibold text-[#23BE0A] border border-[#23BE0A] rounded-lg"
-                      : "font-normal text-[#131313cc]"
+                      ? "font-semibold text-[#23BE0A] border border-[#23BE0A] hover:bg-[#22be0ac4] hover:text-white rounded-lg"
+                      : "font-normal text-[#131313cc] hover:bg-[#e6e6e6] rounded-lg"
                   }`
                 }
               >
@@ -75,8 +75,8 @@ const Navbar = () => {
               className={({ isActive }) =>
                 `px-5 py-2 ${
                   isActive
-                    ? "font-semibold text-[#23BE0A] border border-[#23BE0A] rounded-lg"
-                    : "font-normal text-[#131313cc]"
+                    ? "font-semibold text-[#23BE0A] border border-[#23BE0A] hover:bg-[#22be0ac4] hover:text-white rounded-lg"
+                    : "font-normal text-[#131313cc] hover:bg-[#e6e6e6] rounded-lg"
                 }`
               }
             >
@@ -87,8 +87,8 @@ const Navbar = () => {
               className={({ isActive }) =>
                 `px-5 py-2 ${
                   isActive
-                    ? "font-semibold text-[#23BE0A] border border-[#23BE0A] rounded-lg"
-                    : "font-normal text-[#131313cc]"
+                    ? "font-semibold text-[#23BE0A] border border-[#23BE0A] hover:bg-[#22be0ac4] hover:text-white rounded-lg"
+                    : "font-normal text-[#131313cc] hover:bg-[#e6e6e6] rounded-lg"
                 }`
               }
             >
@@ -99,8 +99,8 @@ const Navbar = () => {
               className={({ isActive }) =>
                 `px-5 py-2 ${
                   isActive
-                    ? "font-semibold text-[#23BE0A] border border-[#23BE0A] rounded-lg"
-                    : "font-normal text-[#131313cc]"
+                    ? "font-semibold text-[#23BE0A] border border-[#23BE0A] hover:bg-[#22be0ac4] hover:text-white rounded-lg"
+                    : "font-normal text-[#131313cc] hover:bg-[#e6e6e6] rounded-lg"
                 }`
               }
             >
