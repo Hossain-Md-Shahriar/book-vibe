@@ -1,6 +1,6 @@
 const PagesToRead = () => {
   return (
-    <div>
+    <div className="mx-5">
       i am pages to read
     </div>
   )

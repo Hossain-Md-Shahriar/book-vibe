@@ -1,6 +1,6 @@
 const ListedBooks = () => {
   return (
-    <div>
+    <div className="mx-5">
       i am listed books
     </div>
   )
