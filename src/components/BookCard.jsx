@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import bannerImage from "../assets/banner-image.png";
 import star from "../assets/star.svg";
 
 const BookCard = ({ book }) => {
-  const { image, tags, bookName, author, category, rating } = book;
+  const { bookId, image, tags, bookName, author, category, rating } = book;
   return (
-    <div className="flex flex-col">
+    <Link to={`/book/${bookId}`} className="flex flex-col">
       <div className="p-6 rounded-2xl border border-[#13131326] flex-grow flex flex-col justify-between">
         <div className="bg-[#F3F3F3] rounded-2xl p-6 flex justify-center mb-6">
           <div className="w-[134px] h-[174px]">
@@ -33,7 +34,7 @@ const BookCard = ({ book }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
