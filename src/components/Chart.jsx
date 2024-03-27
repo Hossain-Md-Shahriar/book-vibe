@@ -31,25 +31,25 @@ const TriangleBar = (props) => {
 
 const Chart = ({ readList }) => {
   return (
-    // <ResponsiveContainer className={`w-16 h-14`}>
-      <BarChart width={1000} height={600} data={readList}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="bookName" />
-        <YAxis />
-        <Tooltip />
-        <Bar
-          dataKey="totalPages"
-          fill="#8884d8"
-          shape={<TriangleBar />}
-          label={{ position: "top" }}
-        >
-          {readList &&
-            readList.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={colors[index % 20]} />
-            ))}
-        </Bar>
-      </BarChart>
-    // </ResponsiveContainer>
+      <ResponsiveContainer width="100%" height={520}>
+        <BarChart width={100} height={600} data={readList}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="bookName" />
+          <YAxis />
+          <Tooltip />
+          <Bar
+            dataKey="totalPages"
+            fill="#8884d8"
+            shape={<TriangleBar />}
+            label={{ position: "top" }}
+          >
+            {readList &&
+              readList.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+              ))}
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
   );
 };
 

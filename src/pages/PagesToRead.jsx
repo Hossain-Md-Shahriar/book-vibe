@@ -9,10 +9,8 @@ const PagesToRead = () => {
   }, []);
 
   return (
-    <div className="mx-5 bg-[#13131307] rounded-2xl">
-      <div className="p-20">
+    <div className="mx-5 bg-[#13131307] rounded-2xl p-3 lg:p-28 mb-28">
       <Chart readList={readList} />
-      </div>
     </div>
   );
 };
