@@ -1,4 +1,4 @@
-import { json, useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 
 const BookDetails = () => {
   const books = useLoaderData();
@@ -110,7 +110,7 @@ const BookDetails = () => {
           </button>
           <button
             onClick={saveWishlistData}
-            className="bg-[#50B1C9] text-white font-work text-lg font-semibold py-4 px-7 rounded-lg"
+            className="bg-[#50B1C9] hover:bg-[#4098ae] text-white font-work text-lg font-semibold py-4 px-7 rounded-lg"
           >
             Wishlist
           </button>

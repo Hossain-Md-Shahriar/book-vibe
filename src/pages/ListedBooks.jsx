@@ -1,9 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import down from "../assets/downArrow.svg";
 import { Link, Outlet } from "react-router-dom";
+import Read from "../components/Read";
+import Wishlist from "../components/Wishlist";
 
 const ListedBooks = () => {
   const [tabIndex, setTabIndex] = useState(0);
+  const [readList, setReadList] = useState([]);
+  const [wishlist, setWishlist] = useState([]);
+  useEffect(() => {
+    setReadList(JSON.parse(localStorage.getItem("read")));
+    setWishlist(JSON.parse(localStorage.getItem("wishlist")));
+  }, []);
+
+  const handleSort = (sort) => {
+    const tempRead = [...readList];
+    const tempWish = [...wishlist];
+    if (sort === "rating") {
+      tempRead.sort((a, b) => b.rating - a.rating);
+      tempWish.sort((a, b) => b.rating - a.rating);
+      setReadList(tempRead);
+      setWishlist(tempWish);
+    }
+    else if(sort === "numberOfPages") {
+      tempRead.sort((a, b) => b.totalPages - a.totalPages);
+      tempWish.sort((a, b) => b.totalPages - a.totalPages);
+      setReadList(tempRead);
+      setWishlist(tempWish);
+    }
+    else {
+      tempRead.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
+      tempWish.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
+      setReadList(tempRead);
+      setWishlist(tempWish);
+    }
+  };
 
   return (
     <div className="mx-5">
@@ -18,13 +49,13 @@ const ListedBooks = () => {
             <img src={down} alt="" />
           </summary>
           <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-40 font-medium">
-            <li>
+            <li onClick={() => handleSort("rating")}>
               <a>Rating</a>
             </li>
-            <li>
+            <li onClick={() => handleSort("numberOfPages")}>
               <a>Number of Pages</a>
             </li>
-            <li>
+            <li onClick={() => handleSort("publishedYear")}>
               <a>Published Year</a>
             </li>
           </ul>
@@ -33,32 +64,34 @@ const ListedBooks = () => {
 
       {/* tab */}
       <div className="flex items-center overflow-x-auto overflow-y-hidden sm:justify-start flex-nowrap text-gray-800 font-work text-lg">
-        <Link
-          to={""}
+        <div
           onClick={() => setTabIndex(0)}
-          className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${
+          className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 cursor-pointer ${
             tabIndex === 0
               ? "border border-b-0 rounded-t-lg text-[#131313cc]"
               : "border-b text-[#1313137f]"
           } border-[#1313134c] bg-white`}
         >
           <span>Read Books</span>
-        </Link>
-        <Link
-          to={"wishlist"}
+        </div>
+        <div
           onClick={() => setTabIndex(1)}
-          className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${
+          className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 cursor-pointer ${
             tabIndex === 1
               ? "border border-b-0 rounded-t-lg text-[#131313cc]"
               : "border-b text-[#1313137f]"
           } border-[#1313134c] bg-white`}
         >
           <span>Wishlist Books</span>
-        </Link>
+        </div>
       </div>
       <div className="relative top-[-1px] w-full border-b border-[#1313134c] -z-10"></div>
       <div className="mt-8">
-      <Outlet />
+        {tabIndex ? (
+          <Wishlist wishlist={wishlist} />
+        ) : (
+          <Read readList={readList} />
+        )}
       </div>
     </div>
   );

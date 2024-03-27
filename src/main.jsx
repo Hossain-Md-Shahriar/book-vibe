@@ -28,16 +28,6 @@ const router = createBrowserRouter([
       {
         path: "listed-books",
         element: <ListedBooks />,
-        children: [
-          {
-            index: true,
-            element: <Read />
-          },
-          {
-            path: "wishlist",
-            element: <Wishlist />
-          }
-        ]
       },
       {
         path: "pages-to-read",
