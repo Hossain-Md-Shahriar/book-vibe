@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import down from "../assets/downArrow.svg";
-import { Link, Outlet } from "react-router-dom";
 import Read from "../components/Read";
 import Wishlist from "../components/Wishlist";
 
@@ -14,25 +13,31 @@ const ListedBooks = () => {
   }, []);
 
   const handleSort = (sort) => {
-    const tempRead = [...readList];
-    const tempWish = [...wishlist];
-    if (sort === "rating") {
-      tempRead.sort((a, b) => b.rating - a.rating);
-      tempWish.sort((a, b) => b.rating - a.rating);
-      setReadList(tempRead);
-      setWishlist(tempWish);
+    if (readList) {
+      const tempRead = [...readList];
+      if (sort === "rating") {
+        tempRead.sort((a, b) => b.rating - a.rating);
+        setReadList(tempRead);
+      } else if (sort === "numberOfPages") {
+        tempRead.sort((a, b) => b.totalPages - a.totalPages);
+        setReadList(tempRead);
+      } else {
+        tempRead.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
+        setReadList(tempRead);
+      }
     }
-    else if(sort === "numberOfPages") {
-      tempRead.sort((a, b) => b.totalPages - a.totalPages);
-      tempWish.sort((a, b) => b.totalPages - a.totalPages);
-      setReadList(tempRead);
-      setWishlist(tempWish);
-    }
-    else {
-      tempRead.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
-      tempWish.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
-      setReadList(tempRead);
-      setWishlist(tempWish);
+    if (wishlist) {
+      const tempWish = [...wishlist];
+      if (sort === "rating") {
+        tempWish.sort((a, b) => b.rating - a.rating);
+        setWishlist(tempWish);
+      } else if (sort === "numberOfPages") {
+        tempWish.sort((a, b) => b.totalPages - a.totalPages);
+        setWishlist(tempWish);
+      } else {
+        tempWish.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
+        setWishlist(tempWish);
+      }
     }
   };
 
