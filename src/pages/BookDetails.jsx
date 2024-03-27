@@ -1,4 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import { Slide, ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const BookDetails = () => {
   const books = useLoaderData();
@@ -21,11 +23,11 @@ const BookDetails = () => {
     const saved = JSON.parse(localStorage.getItem("read")) || [];
     const isExist = saved.find((item) => item.bookId == id);
     if (isExist) {
-      alert("already in read list");
+      toast.error("already in read list");
     } else {
       saved.push(book);
       localStorage.setItem("read", JSON.stringify(saved));
-      alert("saved to read list");
+      toast.success("saved to read list");
     }
   };
 
@@ -35,13 +37,13 @@ const BookDetails = () => {
     const isExistWish = savedWish.find((item) => item.bookId == id);
     const isExistRead = savedRead.find((item) => item.bookId == id);
     if (isExistWish) {
-      alert("already in wishlist");
+      toast.error("already in wishlist");
     } else if (isExistRead) {
-      alert("already in read list");
+      toast.error("already in read list");
     } else {
       savedWish.push(book);
       localStorage.setItem("wishlist", JSON.stringify(savedWish));
-      alert("saved to wishlist");
+      toast.success("saved to wishlist");
     }
   };
 
@@ -116,6 +118,19 @@ const BookDetails = () => {
           </button>
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Slide}
+      />
     </div>
   );
 };
