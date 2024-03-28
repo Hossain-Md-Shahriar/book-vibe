@@ -23,11 +23,11 @@ const BookDetails = () => {
     const saved = JSON.parse(localStorage.getItem("read")) || [];
     const isExist = saved.find((item) => item.bookId == id);
     if (isExist) {
-      toast.error("already in read list");
+      toast.error("Already exists in read list");
     } else {
       saved.push(book);
       localStorage.setItem("read", JSON.stringify(saved));
-      toast.success("saved to read list");
+      toast.success("Saved to read list");
     }
   };
 
@@ -37,13 +37,13 @@ const BookDetails = () => {
     const isExistWish = savedWish.find((item) => item.bookId == id);
     const isExistRead = savedRead.find((item) => item.bookId == id);
     if (isExistWish) {
-      toast.error("already in wishlist");
+      toast.error("Already exists in wishlist");
     } else if (isExistRead) {
-      toast.error("already in read list");
+      toast.error("Already exists in read list");
     } else {
       savedWish.push(book);
       localStorage.setItem("wishlist", JSON.stringify(savedWish));
-      toast.success("saved to wishlist");
+      toast.success("Saved to wishlist");
     }
   };
 
